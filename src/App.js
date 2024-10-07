@@ -1,41 +1,23 @@
+import { selectedProducts } from "./array";
+
 const App = () => {
   return (
-    <div className='categories-container'>
-      <div className='category-container'>
-        {/* <img /> */}
-        <div className='category-body-container'>
-          <h2>Hats</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className='category-container'>
-        {/* <img /> */}
-        <div className='category-body-container'>
-          <h2>Jackets</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className='category-container'>
-        {/* <img /> */}
-        <div className='category-body-container'>
-          <h2>Sneakers</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className='category-container'>
-        {/* <img /> */}
-        <div className='category-body-container'>
-          <h2>Womens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
-      <div className='category-container'>
-        {/* <img /> */}
-        <div className='category-body-container'>
-          <h2>Mens</h2>
-          <p>Shop Now</p>
-        </div>
-      </div>
+    <div className='main'>
+     {
+      selectedProducts.map((selectedProduct, index) => {
+         return selectedProduct.products.map((product, index) => {
+          return (
+            <div className='product' key={index}>
+              <img src={product.thumbnail} alt={product.title} />
+              <p>{product.title}</p>
+              <h1> {product.description}</h1>
+            </div>
+          );
+         })
+      })
+     }
+      
+     
     </div>
   );
 };
